@@ -1,0 +1,71 @@
+<div class="parallax middle-promo">
+  <div class="container">
+    <div class="user-edit-title">
+      <h1>Edit my profile</h1>
+    </div>  
+  </div>
+</div>
+
+<div class="user-form-holder">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="user-form">
+            <%= form_for(@user) do |f| %>
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.text_field :email, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :year %>
+                <%= f.text_field :year, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :department %>
+                <%= f.text_field :department, class: 'form-control' %>
+
+                <select name="User[department]">
+                  <option></option>
+                  <option>yahoo</option>
+                  <option>gmail</option>
+                  <option>msn</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <%= f.label :date_of_birth %>
+                <%= f.text_field :date_of_birth, class: 'form-control' %>
+              </div>
+
+              <%= f.submit 'Save', class: 'btn btn-ok btn-block' %>
+
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<%= render 'layouts/footer' %>

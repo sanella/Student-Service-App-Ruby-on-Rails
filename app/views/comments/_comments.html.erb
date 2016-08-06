@@ -1,0 +1,21 @@
+<%= comments.each do |comment| %>
+	<div class="comment-holder">
+
+		<div class="comment-head">
+			<div class="user-box">
+				<i class="icon-user"></i>
+			</div>
+			<span><%= comment.user.first_name %></span>
+		</div>
+
+		<div class="comment-content">
+			<%= comment.content %>
+		</div>
+
+		<% if current_user && admin? || comment.user_id == current_user.id %>
+			<div class="comment-footer">
+				<%= link_to "", comment_path(comment), method: :delete, data: { confirm: "You sure?" },class: 'icon-trash-circled' %>
+			</div>
+		<%end%>
+	</div>
+<%end%>

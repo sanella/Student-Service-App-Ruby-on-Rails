@@ -1,0 +1,34 @@
+<div class="parallax post-header">
+  <div class="container">
+    <div class="post-title">
+      <h1>Edit post:</h1>
+    </div>  
+  </div>
+</div>
+<div class="post-form-holder">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="edit-post-form">
+          <%= form_for(@post) do |f| %>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+
+          <%= f.submit 'Save', class: 'btn btn-primary btn-admin' %>
+        <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

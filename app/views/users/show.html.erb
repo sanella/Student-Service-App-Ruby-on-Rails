@@ -1,0 +1,37 @@
+<div class="user-profile-holder">
+	<div class="container">
+	<div class="row">
+			<div class="user-information-box">
+				<div class="col-sm-4">
+					<i class="icon-android-attach"></i>
+					<%= image_tag "femal.png" %>
+					<div class="links-holder">
+						<%= link_to "", edit_user_path(current_user), class: 'icon-settings-streamline-1' %>
+						<%= link_to "", user_path(@user), method: :delete, data: { confirm: "You sure?" }, class: 'icon-delete-garbage-streamline' %>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<h1>My profile</h1>
+					<dl  class="dl-horizontal">
+					  <dt>User name:</dt>
+					  <dd><%= @user.first_name %></dd>
+					  <dt>Surname:</dt>
+					  <dd><%= @user.last_name %></dd>
+					  <dt>Role:</dt>
+					  <dd><%= @user.role %></dd>
+					  <dt>Year:</dt>
+					  <dd><%= @user.year %></dd>
+					  <dt>Department:</dt>
+					  <dd><%= @user.department %></dd>
+					  <dt>Date of birth:</dt>
+					  <dd><%= @user.date_of_birth %></dd>
+					</dl>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+</div>
+
+<!-- Footer -->
+<%= render 'layouts/footer' %>

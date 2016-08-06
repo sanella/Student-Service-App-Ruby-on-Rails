@@ -1,0 +1,28 @@
+<div class="parallax post-header">
+  <div class="container">
+    <div class="post-title">
+      <h1>New post!</h1>
+    </div>  
+  </div>
+</div>
+<div class="post-form-holder">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="post-form">
+          <%= form_for(@post, url: posts_path) do |f| %>
+              <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control', placeholder: "Add your title" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :description %>
+                <%= f.text_area :description, class: 'form-control' , placeholder: "Post content ..."%>
+              </div>
+              <%= f.submit 'Create post', class: 'btn btn-admin' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

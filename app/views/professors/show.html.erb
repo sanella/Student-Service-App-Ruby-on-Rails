@@ -1,0 +1,21 @@
+<div class="parallax subjects-header">
+    <div class="container">
+      <div class="caption">
+        <span class="welcome-title">Professor profile page</span>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2><%= @professor.title %></h2>
+			<p><%= @professor.first_name %></p>
+			<p><%= @professor.last_name %></p>
+			<% if current_user && admin? %>
+				<p><%= link_to "Edit", [:edit, @professor] %></p>
+				<p><%= link_to "Destroy", professor_path(@professor), method: :delete, data: { confirm: "You sure?" } %></p>
+			<%end%>
+		</div>
+	</div>
+</div>

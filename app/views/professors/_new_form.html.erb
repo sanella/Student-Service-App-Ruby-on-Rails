@@ -1,0 +1,16 @@
+<%= form_for(@professor, url: professors_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+
+          <%= f.submit 'Create professor', class: 'btn btn-primary btn-admin' %>
+      <% end %>

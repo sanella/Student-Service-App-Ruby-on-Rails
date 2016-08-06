@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudentService</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- 
+            You need to include this script tag on any page that has a Google Map.
+
+            The following script tag will work when opening this example locally on your computer.
+            But if you use this on a localhost server or a live website you will need to include an API key. 
+            Sign up for one here (it's free for small usage): 
+                https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+
+            After you sign up, use the following script tag with YOUR_GOOGLE_API_KEY replaced with your actual key.
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY"></script>
+        -->
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <% if current_user &&  admin? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Admin panel<span class="icon-settings-streamline-2"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Users", '/users' %></li>
+            <li><%= link_to "Professors", '/professors' %></li>
+            <li><%= link_to "Subjects", '/subjects' %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Main Dash", '/admin-panel' %></li>
+          </ul>
+        </li>
+      <% end %>
+      <% if current_user %> 
+        <li><%= link_to "Posts", '/posts' %></li>
+        <li><%= link_to "About us", '/about-us' %></li>
+        <li class="nav-right my-account"><%= link_to "My account", user_path(current_user) %>
+            <%= link_to current_user.email, user_path(current_user) %></li>
+        <li class="nav-right"><%= link_to "Log out", logout_path, method: "delete" %></li> 
+
+      <% else %>        
+        <li><%= link_to "Login", 'login' %></a></li> 
+        <li><%= link_to "Register", 'register' %></a></li> 
+    <% end %>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <% if flash[:error] %>
+    <p class="note bg-error col-md-6"><%= flash[:error] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="note bg-warning"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:success] %>
+    <p class="note bg-success"><%= flash[:succes] %></p>
+  <% end %>
+<%= yield %>
+</main>
+
+</body>
+</html>

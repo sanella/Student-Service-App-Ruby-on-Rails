@@ -1,0 +1,33 @@
+<div class="parallax posts-header">
+  <div class="container">
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="posts">
+			<% @posts.each do |post| %>
+					<div class="col-sm-3 col-xs-12">
+				    <div class="thumbnail">
+				    	<%= image_tag "images.jpg" %>
+				      <h3><%= post.title %></h3>
+				      <p><%= truncate post.description, length:160 %></p>
+				      <ul class="post-options">
+					      <li><%= link_to "Show", post_path(post) %> </li>
+								<% if current_user && admin? %>
+									<li><%= link_to "Edit", edit_post_path(post) %> </li>
+									<li><%= link_to 'Delete', post_path(post), method: :delete , data: {confirm: 'Are you sure?'} %></li>
+								<% end %>
+						</ul>
+						</div>
+					</div>
+				<% end %>
+		</div>
+		<div class="col-xs-12">
+			<div class="pagination-holder">
+				<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+			</div> 
+		</div>
+	</div>
+</div>
+<!-- Footer -->
+<%= render 'layouts/footer' %>

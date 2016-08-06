@@ -1,0 +1,25 @@
+<div class="admin-panel">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h6>ADMIN DASHBOARD</h6>
+				<%= link_to "Create a professor", '/professors/new', class:'btn btn-info' %>
+				<%= link_to "Create a subjects", '/subjects/new', class:'btn btn-info' %>
+
+			</div>
+
+			<div class="col-md-6">
+				<%= render :partial => 'professors/professors' %>
+			</div>
+			<div class="col-md-6">
+				<%= render :partial => 'subjects/subjects' %>
+
+			</div>
+			<div class="col-md-12">
+				<%= render :partial => 'users/users' %>
+			</div>
+
+			</div>
+		</div>
+	</div>
+</div>

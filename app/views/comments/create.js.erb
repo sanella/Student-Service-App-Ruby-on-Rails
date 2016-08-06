@@ -1,0 +1,8 @@
+<% if @comment.persisted? %>
+  $("#comments").html("<%= escape_javascript(render 'comments/comments', comments: @comments) %>");
+
+  //alert("Hello it's me :)");
+<% else %>
+  alert("Nooooooo :'(");
+<% end %>
+

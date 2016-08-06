@@ -1,0 +1,37 @@
+<div class="parallax subjects-header">
+    <div class="container">
+      <div class="caption">
+        <span class="welcome-title">Subject:</span>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Subject</td>
+						<td>ETCS</td>
+						<td>Year</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td><%= @subject.name %></td>
+							<td><%= @subject.etcs %></td>
+							<td><%= @subject.year %></td>
+							<td>
+								<% if current_user && admin? %>
+									<%= link_to "Edit", [:edit, @subject] %> |
+									<%= link_to "Destroy", subject_path(@subject), method: :delete, data: { confirm: "You sure?" } %>
+								<%end%>
+							</td>
+						</tr>
+				</tbody>
+		</table>
+		</div>
+	</div>
+</div>

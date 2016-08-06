@@ -1,0 +1,9 @@
+<!-- Create COMMENT-->
+<h4>Comments</h4>
+<%= form_tag(comments_path, remote: true) do %>
+	<div class="form-group">
+	  <%= text_area_tag :content, nil, class: 'form-control', placeholder: "Add your comment" %>
+	</div>
+  <%= hidden_field_tag :post_id, post_id %>
+  <%= submit_tag 'Save comment', class: 'btn btn-ok' %>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="parallax post-header">
+	<div class="container">
+		<div class="post-title">
+			<h1><%= @post.title %></h1>
+		</div>	
+	</div>
+</div>
+<div class="post-holder">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<%= image_tag "images.jpg" %>
+				<% if current_user && admin? %>
+					<%= link_to "Edit post", [:edit, @post], class: 'btn btn-admin' %>
+				<%end%>
+			</div>
+			<div class="col-md-8">
+				<p><%= @post.description %></p>
+				<!-- POSTS COMMENTS-->
+				<%= render 'comment_form', post_id: @post.id %>
+				<div id="comments">
+					<%= render 'comments/comments', comments: @post.comments %>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+
+<!-- Footer -->
+<%= render 'layouts/footer' %>
